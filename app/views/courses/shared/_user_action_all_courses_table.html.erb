@@ -24,7 +24,7 @@
       <tr>
 
         <td>
-			<%= link_to course_path(course) do %>
+			<%= link_to course_path(course), :title =>"See who is enrolled in this course" do %>
 				<%= course.title %>
 			<% end %>
         </td>
@@ -46,7 +46,7 @@
         </td>
 
         <td>
-			<a href='/course/add/<%= course.id %>'>
+			<a href='/course/add/<%= course.id %>' title='Add this course to your class registration'>
 				Add Course
 			</a>
         </td>
@@ -57,20 +57,21 @@
 </table>
 
 <script>
-  /*
   $('#add_new_courses_id').dataTable(
         {
+          "bPaginate": false,
           "aoColumnDefs": [
 
-
-            { "sWidth": "70px", 'bSortable': false, 'aTargets': [ 0 ],
+            { "sWidth": "40%", 'aTargets': [ 0 ],
             },
 
-            { 'bSortable': false, 'aTargets': [ 1 ],
+            { "sWidth": "20%", 'aTargets': [ 1 ],
+            },
+
+            { 'bSortable': false, 'aTargets': [ 5 ],
             }
 
                           ],
         });
-    */
 
 </script>

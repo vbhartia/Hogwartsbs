@@ -1,44 +1,44 @@
-<table id="user_list_id">
-  <thead>
-    <tr>
-      <th>Name</th>
-
-    </tr>
-  </thead>  
-
-  <tbody>
-    <% @users_to_display.each do |user| %>
+<div style='width:300px' >
+  <table id="user_list_id">
+    <thead>
       <tr>
-
-        <td>
-    			<%= link_to user_path(user) do %>
-            <span title='See all of the courses that <%= user.firstname %> is taking' >
-      				<%= user.firstname %> <%= user.lastname %>
-            </span>
-    			<% end %>
-        </td>
+        <th>Name</th>
 
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>  
+
+    <tbody>
+      <% @users_to_display.each do |user| %>
+        <tr>
+
+          <td>
+      			<%= link_to user_path(user) do %>
+              <span title='See all of the courses that <%= user.firstname %> is taking' >
+        				<%= user.firstname %> <%= user.lastname %>
+              </span>
+      			<% end %>
+          </td>
+
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 
 <script>
-  /*
+  
   $('#user_list_id').dataTable(
         {
+          "bPaginate": false,
           "aoColumnDefs": [
 
-
-            { "sWidth": "70px", 'bSortable': false, 'aTargets': [ 0 ],
+            { "sWidth": "70px", 'aTargets': [ 0 ],
             },
 
-            { 'bSortable': false, 'aTargets': [ 1 ],
-            }
 
                           ],
         });
-    */
+    
 
 </script>
 

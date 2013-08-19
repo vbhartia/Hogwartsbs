@@ -15,3 +15,4 @@
 //= require twitter/bootstrap
 //= require_tree .
 //= require dataTables/jquery.dataTables
+//= require jquery.qtip.js

@@ -46,4 +46,14 @@ Registed Students:
 
 <% @users_to_display = @course.users %>
 
-<%= render "courses/shared/list_users"%>
+<% if @users_to_display.count == 0 %>
+	
+	<br/>	
+	We do not have any record of enrollment yet.
+	<br/>
+
+<% else %>
+
+	<%= render "courses/shared/list_users"%>
+
+<% end %>

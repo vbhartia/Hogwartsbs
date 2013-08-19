@@ -24,7 +24,7 @@
       <tr>
 
         <td>
-			<%= link_to course_path(course) do %>
+			<%= link_to course_path(course), :title =>"See who is enrolled in this course" do %>
 				<%= course.title %>
 			<% end %>
         </td>
@@ -57,20 +57,18 @@
 </table>
 
 <script>
-  /*
+  
   $('#my_courses_tables').dataTable(
         {
+          "bPaginate": false,
           "aoColumnDefs": [
-
-
-            { "sWidth": "70px", 'bSortable': false, 'aTargets': [ 0 ],
+            { "sWidth": "40%", 'aTargets': [ 0 ],
             },
 
-            { 'bSortable': false, 'aTargets': [ 1 ],
+            { 'bSortable': false, 'aTargets': [ 5 ],
             }
 
                           ],
         });
-    */
 
 </script>

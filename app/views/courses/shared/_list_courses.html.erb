@@ -52,13 +52,14 @@
   
   $('#course_list_id').dataTable(
         {
+          "bPaginate": false,
           "aoColumnDefs": [
 
-            { "sWidth": "70px", 'bSortable': false, 'aTargets': [ 0 ],
+            { "sWidth": "40%", 'aTargets': [ 0 ],
             },
 
-            { 'bSortable': false, 'aTargets': [ 1 ],
-            }
+            { "sWidth": "20%", 'aTargets': [ 1 ],
+            },
 
                           ],
         });
