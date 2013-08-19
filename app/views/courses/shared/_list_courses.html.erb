@@ -1,0 +1,68 @@
+<table id="course_list_id">
+  <thead>
+    <tr>
+      <th>
+      	Course Title
+
+      </th>
+
+      <th>Professor</th>
+
+      <th>Term</th>
+
+      <th>Quarter</th>
+  
+      <th>Credits</th>
+
+    </tr>
+  </thead>  
+
+  <tbody>
+    <% @courses_to_display.each do |course| %>
+      <tr>
+
+        <td>
+			<%= link_to course_path(course) do %>
+				<%= course.title %>
+			<% end %>
+        </td>
+
+        <td>
+			<%= course.professor %>
+        </td>
+
+        <td>
+			<%= course.term %>
+        </td>
+
+        <td>
+			<%= course.quarter %>
+        </td>
+
+        <td>
+			<%= course.credits %>
+        </td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<script>
+  /*
+  $('#course_list_id').dataTable(
+        {
+          "aoColumnDefs": [
+
+
+            { "sWidth": "70px", 'bSortable': false, 'aTargets': [ 0 ],
+            },
+
+            { 'bSortable': false, 'aTargets': [ 1 ],
+            }
+
+                          ],
+        });
+    */
+
+</script>

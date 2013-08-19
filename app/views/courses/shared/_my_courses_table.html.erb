@@ -1,0 +1,76 @@
+<table id="my_courses_tables">
+  <thead>
+    <tr>
+      <th>
+      	Course Title
+
+      </th>
+
+      <th>Professor</th>
+
+      <th>Term</th>
+
+      <th>Quarter</th>
+  
+      <th>Credits</th>
+
+      <th>Course Actions</th>
+
+    </tr>
+  </thead>  
+
+  <tbody>
+    <% current_user.courses.all.each do |course| %>
+      <tr>
+
+        <td>
+			<%= link_to course_path(course) do %>
+				<%= course.title %>
+			<% end %>
+        </td>
+
+        <td>
+			<%= course.professor %>
+        </td>
+
+        <td>
+			<%= course.term %>
+        </td>
+
+        <td>
+			<%= course.quarter %>
+        </td>
+
+        <td>
+			<%= course.credits %>
+        </td>
+
+        <td>
+			<a href='/course/remove/<%= course.id %>'>
+				Remove Course
+			</a>
+        </td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<script>
+  /*
+  $('#my_courses_tables').dataTable(
+        {
+          "aoColumnDefs": [
+
+
+            { "sWidth": "70px", 'bSortable': false, 'aTargets': [ 0 ],
+            },
+
+            { 'bSortable': false, 'aTargets': [ 1 ],
+            }
+
+                          ],
+        });
+    */
+
+</script>

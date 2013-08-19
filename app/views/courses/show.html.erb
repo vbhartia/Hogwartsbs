@@ -1,0 +1,49 @@
+
+<% content_for :title do %>
+  <%= @course.title %>
+<% end %>
+
+
+<h3>
+	<%= @course.title %>
+</h3>
+
+
+<table>
+	<tr>
+		<td>
+			Professor:
+		</td>
+		<td>
+			<%= @course.professor %>
+		</td>
+	</tr>		
+
+	<tr>
+		<td>
+			Term:
+		</td>
+		<td>
+			<%= @course.term %>
+		</td>
+	</tr>
+
+	<tr>
+		<td>
+			Quarter:
+		</td>
+		<td>
+			<%= @course.quarter %>
+		</td>
+	</tr>
+</table>
+
+<hr>
+
+<h4>
+Registed Students:
+</h4>
+
+<% @users_to_display = @course.users %>
+
+<%= render "courses/shared/list_users"%>

@@ -1,0 +1,34 @@
+<% content_for :title do %>
+  <%= current_user.firstname %>'s Courses
+<% end %>
+
+
+
+<h2>
+	<%= current_user.firstname %>'s Registerd Courses
+</h2>
+
+<hr>
+
+	<% if current_user.courses.count == 0 %>
+		You have not added any courses. Please add courses using the table below. 
+
+	<% else %>
+		<%= render "courses/shared/my_courses_table"%>
+	<% end %>
+
+<hr>
+
+<br/>
+<br/>
+
+<!-- add new courses -->
+
+<h2>
+	Add New Courses
+</h2>
+<hr>
+	<%= render "courses/shared/user_action_all_courses_table"%>
+
+
+

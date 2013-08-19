@@ -1,0 +1,91 @@
+
+<div class='homepage_hero'>
+	<center>
+		<br/>
+		<h2>
+			Hogwarts Business School
+		</h2>
+	
+		<br/>
+		<h4>
+			A simple tool for finding out who's in your class.
+		</h4>
+	
+
+		<br/>	
+
+	    <% if user_signed_in? %>
+	    <% else %>
+
+	    	Please 
+
+			<button class="btn btn-large btn-success" onClick="window.location=''" type="button">
+				Sign Up!
+			</button>
+
+			in order to get started.
+		<% end %>
+
+	</center>
+</div>
+
+<br/>
+	<ul>
+		<li>
+		    <% if user_signed_in? %>
+	    		<button class="btn btn-success" onClick="window.location='<%= my_courses_path %>'" type="button"> 
+					My Courses
+				</button>
+
+				 - see all of the courses you are registered for, and who's in them.
+	    	<% else %>
+	    		See who's in the courses you're registered for.
+    		<% end %>
+		</li>
+
+		<li>
+		    <% if user_signed_in? %>
+				<button class="btn btn-success" onClick="window.location='<%= all_courses_path %>'" type="button">
+					All Courses
+				</button>
+
+		 			- Browse through all of HBS's second year courses to see who's in them.
+	    	<% else %>
+	    		Browse through all of HBS's EC courses and see who's in them.
+    		<% end %>
+		</li>
+
+		<li>
+		    <% if user_signed_in? %>
+
+				<button class="btn btn-success" onClick="window.location='<%= all_courses_path %>'" type="button">
+					See Friends Courses
+				</button>
+
+					- Find your friends and see what courses they're in.
+			<% else %>
+				Find your friends and see what courses they're in.
+			<% end %>
+		</li>
+	</ul>
+<br/>
+<br/>
+
+We use crowd sourced data to populate course information, therefore the list of students in a particular course may not be accurate. Please help your fellow students by keeping your course list accurate.
+
+<br/>
+<br/>
+I'd love to hear what you think about this. Please email me - <a href = "mailto:?to=varun.bhartia@gmail.com">
+	Varun Bhartia - varun.bhartia@gmail.com
+</a>
+
+<br/>
+
+<h2>
+	Thank You for trying it out!
+</h2>
+
+
+<h5>
+	Not affliated with or endorsed by  Harvard Business School in any way. 
+</h5>

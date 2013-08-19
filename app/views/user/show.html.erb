@@ -1,0 +1,17 @@
+<!-- Shows the courses for a particular user -->
+<% content_for :title do %>
+  <%= @user.firstname %>'s Courses
+<% end %>
+
+<%= @user.firstname %> <%= @user.lastname %>
+
+<br/>
+
+<%= @user.email %>
+
+<br/>
+<hr>
+
+<% @courses_to_display = @user.courses %>
+
+<%= render "courses/shared/list_courses"%>
