@@ -30,7 +30,7 @@
 
 
 </head>
-<body 
+<body>
 
     <div class="navbar navbar-fixed-top">
     <div class="navbar-inner nav_height">
@@ -41,6 +41,9 @@
           </span>
         </a>
 
+        &nbsp
+        &nbsp
+
 
         <% if user_signed_in? %>
           <ul class="nav padding-top">
@@ -49,9 +52,13 @@
 				My Courses
 			</button>
 
+	        &nbsp
+
 			<button class="btn btn-success" onClick="window.location='<%= all_courses_path %>'" type="button">
 				All Courses
 			</button>
+
+	        &nbsp
 
 			<button class="btn btn-success" onClick="window.location='<%= all_users_path %>'" type="button">
 				See Friends Courses
@@ -68,9 +75,13 @@
 
                 <table>
                   <tr>
-                    <td>                
-                      <%= image_tag(current_user.profile_pic_url) %>
+                    <!--
+                    <td>
+
+                      	<%= image_tag(current_user.profile_pic_url) %>
                     </td>
+
+                -->
               
                     <td>                
                       &nbsp <%= ' ' + current_user.firstname + ' ' + current_user.lastname + ' ' %>
@@ -102,7 +113,7 @@
 			<button class="btn btn-success" onClick="window.location='<%= new_user_session_path %>'" type="button">
 				Login 
 			</button>
-            
+            	
 
           <% end %>
 
@@ -110,6 +121,9 @@
       </div>
     </div>
   </div>
+	
+	<br/>
+	<br/>
 
   <div class="container">
     

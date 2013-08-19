@@ -11,7 +11,8 @@
 <hr>
 
 	<% if current_user.courses.count == 0 %>
-		You have not added any courses. Please add courses using the table below. 
+		
+		You have not added any courses. Please add atleast 5 courses using the table below in order view course enrollment. 
 
 	<% else %>
 		<%= render "courses/shared/my_courses_table"%>
