@@ -3,13 +3,11 @@
   <%= @user.firstname %>'s Courses
 <% end %>
 
-<%= @user.firstname %> <%= @user.lastname %>
+<strong>
+	<%= @user.firstname %> <%= @user.lastname %>'s courses
+</strong>
 
-<br/>
 
-<%= @user.email %>
-
-<br/>
 <hr>
 
 <% @courses_to_display = @user.courses %>
