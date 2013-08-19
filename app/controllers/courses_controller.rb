@@ -11,7 +11,7 @@ class CoursesController < ApplicationController
 		course_count = current_user.courses.count
 
 		if (course_count < 5)
-			flash.alert = 'Sorry, but in order to view who\'s enrolled in "' + Course.find(params[:name]).title + '" you must add atleast 5 of your own courses.'
+			flash.alert = 'Sorry, but in order to view who is enrolled in "' + Course.find(params[:name]).title + '" you must add atleast 5 of your own courses.'
 			redirect_to :action => 'my_courses'
 		else
 			@course = Course.find(params[:name])		

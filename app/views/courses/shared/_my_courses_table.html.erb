@@ -1,19 +1,24 @@
 <table id="my_courses_tables">
   <thead>
     <tr>
-      <th>
-      	Course Title
+      <th>Course Title</th>
 
-      </th>
+      <th>Faculty</th>
 
-      <th>Professor</th>
+      <th>Section</th>
+
+      <th>Day</th>
+
+      <th>Time</th>
+
+      <th>Location</th>
+
+      <th>Code</th>
 
       <th>Term</th>
 
-      <th>Quarter</th>
+      <th>Quarter/Credits</th>
   
-      <th>Credits</th>
-
       <th>Course Actions</th>
 
     </tr>
@@ -30,25 +35,41 @@
         </td>
 
         <td>
-			<%= course.professor %>
+			<%= course.faculty %>
         </td>
 
         <td>
-			<%= course.term %>
+			<%= course.section %>
         </td>
 
         <td>
-			<%= course.quarter %>
+			<%= course.day %>
         </td>
 
         <td>
-			<%= course.credits %>
+			<%= course.time %>
         </td>
 
         <td>
-			<a href='/course/remove/<%= course.id %>' title='Remove this course from my list'>
+      <%= course.location %>
+        </td>
+
+        <td>
+      <%= course.code %>
+        </td>
+
+          <td>
+      <%= course.term %>
+        </td>
+
+          <td>
+      <%= course.quarter_credits %>
+        </td>
+
+        <td>
+    			<a href='/course/remove/<%= course.id %>' title='Remove this course from my list'>
 				Remove Course
-			</a>
+		    	</a>
         </td>
 
       </tr>
@@ -65,7 +86,7 @@
             { "sWidth": "40%", 'aTargets': [ 0 ],
             },
 
-            { 'bSortable': false, 'aTargets': [ 5 ],
+            { 'bSortable': false, 'aTargets': [ 9 ],
             }
 
                           ],

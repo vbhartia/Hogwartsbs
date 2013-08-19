@@ -1,19 +1,24 @@
 <table id="add_new_courses_id">
   <thead>
     <tr>
-      <th>
-      	Course Title
+      <th>Course Title</th>
 
-      </th>
+      <th>Faculty</th>
 
-      <th>Professor</th>
+      <th>Section</th>
+
+      <th>Day</th>
+
+      <th>Time</th>
+
+      <th>Location</th>
+
+      <th>Code</th>
 
       <th>Term</th>
 
-      <th>Quarter</th>
+      <th>Quarter/Credits</th>
   
-      <th>Credits</th>
-
       <th>Course Actions</th>
 
     </tr>
@@ -24,31 +29,47 @@
       <tr>
 
         <td>
-			<%= link_to course_path(course), :title =>"See who is enrolled in this course" do %>
-				<%= course.title %>
-			<% end %>
+      <%= link_to course_path(course), :title =>"See who is enrolled in this course" do %>
+        <%= course.title %>
+      <% end %>
         </td>
 
         <td>
-			<%= course.professor %>
+      <%= course.faculty %>
         </td>
 
         <td>
-			<%= course.term %>
+      <%= course.section %>
         </td>
 
         <td>
-			<%= course.quarter %>
+      <%= course.day %>
         </td>
 
         <td>
-			<%= course.credits %>
+      <%= course.time %>
         </td>
 
         <td>
-			<a href='/course/add/<%= course.id %>' title='Add this course to your class registration'>
-				Add Course
-			</a>
+      <%= course.location %>
+        </td>
+
+        <td>
+      <%= course.code %>
+        </td>
+
+          <td>
+      <%= course.term %>
+        </td>
+
+          <td>
+      <%= course.quarter_credits %>
+        </td>
+
+        <td>
+			   <a href='/course/add/<%= course.id %>' title='Add this course to your class registration'>
+				    Add Course
+			   </a>
         </td>
 
       </tr>
@@ -68,7 +89,7 @@
             { "sWidth": "20%", 'aTargets': [ 1 ],
             },
 
-            { 'bSortable': false, 'aTargets': [ 5 ],
+            { 'bSortable': false, 'aTargets': [ 9 ],
             }
 
                           ],

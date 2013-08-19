@@ -1,18 +1,23 @@
 <table id="course_list_id">
   <thead>
     <tr>
-      <th>
-      	Course Title
+      <th>Course Title</th>
 
-      </th>
+      <th>Faculty</th>
 
-      <th>Professor</th>
+      <th>Section</th>
+
+      <th>Day</th>
+
+      <th>Time</th>
+
+      <th>Location</th>
+
+      <th>Code</th>
 
       <th>Term</th>
 
-      <th>Quarter</th>
-  
-      <th>Credits</th>
+      <th>Quarter/Credits</th>
 
     </tr>
   </thead>  
@@ -22,25 +27,41 @@
       <tr>
 
         <td>
-			<%= link_to course_path(course) do %>
-				<%= course.title %>
-			<% end %>
+      <%= link_to course_path(course), :title =>"See who is enrolled in this course" do %>
+        <%= course.title %>
+      <% end %>
         </td>
 
         <td>
-			<%= course.professor %>
+      <%= course.faculty %>
         </td>
 
         <td>
-			<%= course.term %>
+      <%= course.section %>
         </td>
 
         <td>
-			<%= course.quarter %>
+      <%= course.day %>
         </td>
 
         <td>
-			<%= course.credits %>
+      <%= course.time %>
+        </td>
+
+        <td>
+      <%= course.location %>
+        </td>
+
+        <td>
+      <%= course.code %>
+        </td>
+
+          <td>
+      <%= course.term %>
+        </td>
+
+          <td>
+      <%= course.quarter_credits %>
         </td>
 
       </tr>
@@ -55,10 +76,10 @@
           "bPaginate": false,
           "aoColumnDefs": [
 
-            { "sWidth": "40%", 'aTargets': [ 0 ],
+            { "sWidth": "30%", 'aTargets': [ 0 ],
             },
 
-            { "sWidth": "20%", 'aTargets': [ 1 ],
+            { "sWidth": "10%", 'aTargets': [ 1 ],
             },
 
                           ],
