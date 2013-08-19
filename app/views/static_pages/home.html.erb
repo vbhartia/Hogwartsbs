@@ -1,9 +1,13 @@
+<% content_for :title do %>
+  Hogwarts Business School Friend Finder
+<% end %>
+
 
 <div class='homepage_hero'>
 	<center>
 		<br/>
 		<h2>
-			Hogwarts Business School
+			Hogwarts Business School Friend Finder
 		</h2>
 	
 		<br/>
@@ -19,11 +23,17 @@
 
 	    	Please 
 
-			<button class="btn btn-large btn-success" onClick="window.location=''" type="button">
-				Sign Up!
+			<button class="btn btn-success" onClick="window.location='<%= new_user_registration_path %>'" type="button">
+				Sign Up
 			</button>
 
-			in order to get started.
+			 or 
+
+			<button class="btn btn-success" onClick="window.location='<%= new_user_session_path %>'" type="button">
+				Login 
+			</button>
+
+			in order to get started!
 		<% end %>
 
 	</center>
@@ -31,6 +41,7 @@
 
 <br/>
 	<ul>
+		<strong>
 		<li>
 		    <% if user_signed_in? %>
 	    		<button class="btn btn-success" onClick="window.location='<%= my_courses_path %>'" type="button"> 
@@ -67,11 +78,14 @@
 				Find your friends and see what courses they're in.
 			<% end %>
 		</li>
+		</strong>
 	</ul>
 <br/>
 <br/>
 
-We use crowd sourced data to populate course information, therefore the list of students in a particular course may not be accurate. Please help your fellow students by keeping your course list accurate.
+<hr/>
+
+We use crowd sourced data to populate course information, therefore the list of students in a particular course may not be accurate. For entertainment purposes only.
 
 <br/>
 <br/>
@@ -86,6 +100,3 @@ I'd love to hear what you think about this. Please email me - <a href = "mailto:
 </h2>
 
 
-<h5>
-	Not affliated with or endorsed by  Harvard Business School in any way. 
-</h5>

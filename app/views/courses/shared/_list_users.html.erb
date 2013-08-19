@@ -1,8 +1,6 @@
 <table id="user_list_id">
   <thead>
     <tr>
-      <th>Mug Shot</th>
-
       <th>Name</th>
 
     </tr>
@@ -11,10 +9,6 @@
   <tbody>
     <% @users_to_display.each do |user| %>
       <tr>
-
-        <td>
-          <%= image_tag(user.profile_pic_url) %>
-        </td>
 
         <td>
     			<%= link_to user_path(user) do %>

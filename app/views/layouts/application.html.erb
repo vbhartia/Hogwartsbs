@@ -37,7 +37,7 @@
       <div class="container">
         <a href="<%= root_url %>" class="brand"> 
           <span title='Go to the Hogwarts Business School Homepage'>
-            Hogwarts Business School
+            Hogwarts Business School Friend Finder
           </span>
         </a>
 
@@ -59,13 +59,6 @@
 
           </ul>
         <% end %>
-
-        <% if user_signed_in? %>
-
-	    <% else %>
-	      <%= link_to "Sign up", new_user_registration_path %> |
-	      <%= link_to "Login", new_user_session_path %>
-	    <% end %>
 
         <ul class="nav pull-right">
           <% if user_signed_in? %>
@@ -102,10 +95,15 @@
 
           <% else %>
 
-            <li>
-            	Placeholder - Facebook Login info
+			<button class="btn btn-success" onClick="window.location='<%= new_user_registration_path %>'" type="button">
+				Sign Up
+			</button>
 
-            </li>
+			<button class="btn btn-success" onClick="window.location='<%= new_user_session_path %>'" type="button">
+				Login 
+			</button>
+            
+
           <% end %>
 
         </ul>
@@ -129,6 +127,8 @@
     <%= yield %>
     
   </div>
+
+  		<%= render "static_pages/shared/footer"%>
 
 </body>
 
