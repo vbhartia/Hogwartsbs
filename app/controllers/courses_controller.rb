@@ -21,16 +21,17 @@ class CoursesController < ApplicationController
 
 	def add
       
-      if (try(current_user.courses.find(params[:course_id])))
-        flash.alert = 'You are already enrolled in this course'
-        redirect_to :action => 'my_courses'
-      else
+      if (current_user.courses.where(id: params[:course_id])).empty?
       	course_to_add = Course.find(params[:course_id])
 
 	      if (current_user.courses << course_to_add)
 	        flash.alert = '\'' + course_to_add.title + '\'' + ' Successfully Added'
 	        redirect_to :action => 'my_courses'
 	      end
+
+      else
+	      flash.alert = 'You are already enrolled in this course'
+        	redirect_to :action => 'my_courses'
 
       end
   	end	
