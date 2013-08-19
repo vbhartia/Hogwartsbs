@@ -37,12 +37,16 @@ class CoursesController < ApplicationController
   	end	
 
 	def remove
-		course_selection_to_remove = current_user.course_selections.where(course_id = params[:course_id]).first
-		course_to_remove = current_user.course_selections.delete(course_selection_to_remove)
+		course_to_remove = Course.find(params[:course_id])
 		
-		flash.alert = '\'' + Course.find(params[:course_id]).title + '\'' + ' Removed from your courses'
+		if (current_user.courses.delete(course_to_remove))
 
-		redirect_to :action => 'my_courses'
+			flash.alert = '\'' + Course.find(params[:course_id]).title + '\'' + ' Removed from your courses'
+			redirect_to :action => 'my_courses'
+		else
+			flash.alert = '\'' + Course.find(params[:course_id]).title + '\'' + ' Could not be deleted'
+			redirect_to :action => 'my_courses'
+		end
 	end
 
 
