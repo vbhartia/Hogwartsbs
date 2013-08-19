@@ -1,5 +1,7 @@
 class CoursesController < ApplicationController
 
+	before_filter :authenticate_user!
+
 	def all_courses
 		@all_courses = Course.all
 	end
