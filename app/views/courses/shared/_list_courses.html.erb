@@ -1,4 +1,8 @@
-<table id="course_list_id">
+<% if @table_id == '' %>
+ <% @table_id = 'course_list_id' %>
+<% end %>
+
+<table id="<%= @table_id %>">
   <thead>
     <tr>
       <th>Course Title</th>
@@ -71,7 +75,7 @@
 
 <script>
   
-  $('#course_list_id').dataTable(
+  $('#<%= @table_id %>').dataTable(
         {
           "bPaginate": false,
           "aoColumnDefs": [

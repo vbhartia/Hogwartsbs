@@ -3,12 +3,39 @@
   <%= @user.firstname %>'s Courses
 <% end %>
 
-<strong>
-	<%= @user.firstname %> <%= @user.lastname %>'s courses
-</strong>
+<h3>
+	Courses you have in common with <%= @user.firstname %>:
+</h3>
+
+<hr/>
+
+	<% @table_id = 'common_courses' %>
+
+	<% @courses_to_display = (@user.courses & current_user.courses) %>
+
+	<% if @courses_to_display.count == 0 %>
+		
+		Sorry - you do not have any courses in common 
+
+	<% else %>
+		<%= render "courses/shared/list_courses"%>
+	<% end %>
+
+<br/>
+<br/>
+<br/>
+<br/>
+
+
+
+<h3>
+	<%= @user.firstname %> <%= @user.lastname %>'s courses:
+</h3>
 
 
 <hr>
+
+<% @table_id = 'all_courses' %>
 
 <% @courses_to_display = @user.courses %>
 
