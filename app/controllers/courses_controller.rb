@@ -22,20 +22,28 @@ class CoursesController < ApplicationController
 	end
 
 	def add
+
+      flash_notice = ''
+
+  	  puts params[:courses]
+
+      params[:courses].each_key do |key|
+        
+        course_to_add = Course.find(key)
+        if (current_user.courses.where(id: key)).empty?
+
+		  	if (current_user.courses << course_to_add)
+		       flash_notice = flash_notice + ' \'' + course_to_add.title + '\'' + ' Successfully Added <br/>'
+		  	end
+		else
+	  		flash_notice = flash_notice + ' You are already enrolled in ' + '\'' + course_to_add.title + '\' <br/>'
+	  	end
+
+	  end
+	  
+	  flash.alert = flash_notice
+      redirect_to :action => 'my_courses'
       
-      if (current_user.courses.where(id: params[:course_id])).empty?
-      	course_to_add = Course.find(params[:course_id])
-
-	      if (current_user.courses << course_to_add)
-	        flash.alert = '\'' + course_to_add.title + '\'' + ' Successfully Added'
-	        redirect_to :action => 'my_courses'
-	      end
-
-      else
-	      flash.alert = 'You are already enrolled in this course'
-        	redirect_to :action => 'my_courses'
-
-      end
   	end	
 
 	def remove

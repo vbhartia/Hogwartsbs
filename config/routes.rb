@@ -6,7 +6,7 @@ CourseMash::Application.routes.draw do
   get 'all_courses' => "courses#all_courses", as: 'all_courses' 
   get 'course/:name' => "courses#show", as: 'course'
   get 'my_courses' => "courses#my_courses", as: 'my_courses'
-  get 'course/add/:course_id' => "courses#add", as: 'course_add' 
+  post 'course/add' => "courses#add", as: 'course_add' 
   get 'course/remove/:course_id' => "courses#remove", as: 'course_remove' 
 
   get 'user' => "user#all_users", as: 'all_users' 

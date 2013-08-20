@@ -123,11 +123,11 @@
     <br/>
 
     <% if notice %>
-      <p class="notice"><%=h(notice) %></p>
+      <p class="notice"><%= notice.html_safe %></p>
     <% end %>
 
     <% if alert %>
-      <p class="alert"><%=h(alert) %></p>  
+      <p class="alert"><%= alert.html_safe %></p>  
     <% end %>
 
     <%= yield %>

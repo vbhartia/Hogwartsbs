@@ -1,6 +1,15 @@
+
+<%= form_tag("/course/add", method: "post",:id => 'checked_courses') do %>
+
+  <button type="submit" class="btn-large btn-success" title="Add the selected courses below to your registered courses">Add selected courses
+  </button>
+
+
 <table id="add_new_courses_id">
   <thead>
     <tr>
+      <th>Add Course</th>
+
       <th>Course Title</th>
 
       <th>Faculty</th>
@@ -19,14 +28,18 @@
 
       <th>Quarter/Credits</th>
   
-      <th>Course Actions</th>
-
     </tr>
   </thead>  
 
   <tbody>
+
     <% Course.all.each do |course| %>
       <tr>
+        <td>
+          <input name="courses[<%= course.id %>]" type="checkbox" />
+
+
+        </td>
 
         <td>
       <%= link_to course_path(course), :title =>"See who is enrolled in this course" do %>
@@ -66,16 +79,20 @@
       <%= course.quarter_credits %>
         </td>
 
-        <td>
-			   <a href='/course/add/<%= course.id %>' title='Add this course to your class registration'>
-				    Add Course
-			   </a>
-        </td>
-
       </tr>
     <% end %>
+
   </tbody>
 </table>
+
+<br/>
+<br/>
+
+  <button type="submit" class="btn-large btn-success" title="Add the selected courses below to your registered courses">
+    Add selected courses
+  </button>
+
+<% end %>
 
 <script>
   $('#add_new_courses_id').dataTable(
@@ -83,13 +100,13 @@
           "bPaginate": false,
           "aoColumnDefs": [
 
-            { "sWidth": "40%", 'aTargets': [ 0 ],
+            { "sWidth": "40%", 'aTargets': [ 1 ],
             },
 
-            { "sWidth": "20%", 'aTargets': [ 1 ],
+            { "sWidth": "20%", 'aTargets': [ 2 ],
             },
 
-            { 'bSortable': false, 'aTargets': [ 9 ],
+            { 'bSortable': false, 'aTargets': [ 0 ],
             }
 
                           ],
