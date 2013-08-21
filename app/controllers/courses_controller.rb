@@ -22,10 +22,14 @@ class CoursesController < ApplicationController
 	end
 
 	def add
+		flash_notice = ''
 
-      flash_notice = ''
 
-  	  puts params[:courses]
+    if params[:courses].nil?
+	  flash.alert = "You did not select any courses, please press the checkbox next to all of the courses you are registered for. Then press 'Add Selected Courses'"
+      redirect_to :action => 'my_courses'
+    
+    else
 
       params[:courses].each_key do |key|
         
@@ -43,6 +47,8 @@ class CoursesController < ApplicationController
 	  
 	  flash.alert = flash_notice
       redirect_to :action => 'my_courses'
+    
+    end
       
   	end	
 
