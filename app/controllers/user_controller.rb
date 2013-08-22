@@ -3,7 +3,7 @@ class UserController < ApplicationController
 	before_filter :authenticate_user!
 
 	def all_users
-		@all_users = User.all
+		@all_users = User.all.delete_if {|user| user == current_user} 
 	end
 
 	def show
