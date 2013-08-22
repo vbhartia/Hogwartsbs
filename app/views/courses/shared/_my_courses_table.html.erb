@@ -3,21 +3,13 @@
     <tr>
       <th>Course Title</th>
 
+      <th>Enrolled Students</th>
+
       <th>Faculty</th>
 
       <th>Section</th>
 
-      <th>Day</th>
-
-      <th>Time</th>
-
-      <th>Location</th>
-
-      <th>Code</th>
-
       <th>Term</th>
-
-      <th>Quarter/Credits</th>
   
       <th>Remove Course?</th>
 
@@ -29,10 +21,29 @@
       <tr>
 
         <td>
-			<%= link_to course_path(course), :title =>"See who is enrolled in this course" do %>
-				<%= course.title %>
-			<% end %>
+    			<%= link_to course_path(course), :title =>"See who is enrolled in this course" do %>
+			     	<%= course.title %>
+	     		<% end %>
         </td>
+
+        <td>
+            <div style='height:80px; overflow:auto; padding-left:5px;'>
+              <% course.users.each do |registered_students| %>
+
+                <%= link_to user_path(registered_students) do %>
+                  <span title='See all of the courses that <%= registered_students.firstname %> is taking' >
+                    <%= registered_students.firstname %> <%= registered_students.lastname %>
+                  </span>
+                <% end %>
+
+                <br/>
+
+              <% end %>
+          </div>
+
+        </td>
+
+
 
         <td>
 			<%= course.faculty %>
@@ -43,32 +54,13 @@
         </td>
 
         <td>
-			<%= course.day %>
-        </td>
-
-        <td>
-			<%= course.time %>
-        </td>
-
-        <td>
-      <%= course.location %>
-        </td>
-
-        <td>
-      <%= course.code %>
-        </td>
-
-          <td>
       <%= course.term %>
         </td>
 
-          <td>
-      <%= course.quarter_credits %>
-        </td>
 
         <td>
     			<a href='/course/remove/<%= course.id %>' title='Remove this course from my list'>
-				Remove Course
+			   	Remove Course
 		    	</a>
         </td>
 
@@ -83,10 +75,13 @@
         {
           "bPaginate": false,
           "aoColumnDefs": [
-            { "sWidth": "40%", 'aTargets': [ 0 ],
+            { "sWidth": "30%", 'aTargets': [ 0 ],
             },
 
-            { 'bSortable': false, 'aTargets': [ 9 ],
+            { "sWidth": "20%", 'aTargets': [ 1 ],
+            },
+
+            { 'bSortable': false, 'aTargets': [ 5 ],
             }
 
                           ],

@@ -1,8 +1,81 @@
 
 <h3>
-  All registered users
+  All Registered Students
 </h3>
+
+Please click on a student to see all courses the student is taking and what courses you have in common.
+
+<br/>
+<br/>
 
 <% @users_to_display = @all_users %>
 
-<%= render "courses/shared/list_users"%>
+<div style='width:100%' >
+  <table id="user_list_id">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Number of Courses In Common</th>
+        <th>Common Courses</th>
+      </tr>
+    </thead>  
+
+    <tbody>
+      <% @users_to_display.each do |user| %>
+        <tr>
+
+          <td>
+      			<%= link_to user_path(user) do %>
+              <span title='See all of the courses that <%= user.firstname %> is taking' >
+        				<%= user.firstname %> <%= user.lastname %>
+              </span>
+      			<% end %>
+          </td>
+
+          <td>
+      			<%= link_to user_path(user) do %>
+	              <div style='text-align:center' title='See all of the courses that <%= user.firstname %> is taking' >
+
+      				<%= (user.courses & current_user.courses).count %>
+  				  </div>
+  				<% end %>	
+          </td>
+
+          <td>
+  			<div style='height:70px; overflow:auto; padding-left:5px;'>
+	        	<% (user.courses & current_user.courses).each do |mututal_course| %>
+
+                	<%= link_to course_path(mututal_course) do %>
+                  		<span title='See all of the students registered for <%= mututal_course.title %>' >
+                    		<%= mututal_course.title %> 
+                  		</span>
+                	<% end %>
+ 	                <br/>
+				<% end %>
+          	</div>
+          </td>
+
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<script>
+  
+  $('#user_list_id').dataTable(
+        {
+          "bPaginate": false,
+          "aoColumnDefs": [
+
+            { "sWidth": "150px", 'aTargets': [ 0 ],
+            },
+            { "sWidth": "100px", 'aTargets': [ 1 ],
+            },
+
+
+                          ],
+        });
+    
+
+</script>
